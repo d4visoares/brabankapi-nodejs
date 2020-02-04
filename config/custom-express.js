@@ -9,9 +9,18 @@ customExpress = () => {
     app.use(express.json())
 
     consign()
-        .include('controllers')
-        .include('models')
-        .into(app)    
+    .include('controllers/public')
+    .then('middlewares')
+    .then('controllers')
+    .then('models').into(app)
+
+    // app.use()
+
+    // consign()
+    //     .include('controllers')
+    //     .include('models')
+        
+    //     .into(app)    
 
     return app
 }

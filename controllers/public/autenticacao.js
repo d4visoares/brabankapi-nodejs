@@ -2,8 +2,8 @@ const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const UsuariosValidator = require('../validator/Usuarios');
-const auth = require('../config/auth');
+const UsuariosValidator = require('../../validator/Usuarios');
+const auth = require('../../config/auth');
 
 gerarToken = (params)=>
   jwt.sign(params, auth.secret, {
