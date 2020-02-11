@@ -4,11 +4,7 @@ const auth = require('../config/auth')
 // ***** Criação de um middleware
 // Para podermos passar para o próximo middlewares ou requisiçaõ, precisamos usar o comando next()
 
-module.exports =  (app) =>{
-    app.use(mid);
-}
-
-const mid = async (req, res, next) => {
+module.exports = async (req, res, next) => {
     const authHeader = req.headers.authorization
 
     // Verifica se há um authorization passado no header

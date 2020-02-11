@@ -11,7 +11,7 @@ class Categoria {
     }
 
     insere(categoria){
-        return baseQuery('INSERT INTO usuario SET ?', categoria);
+        return baseQuery('INSERT INTO categoria SET ?', categoria);
     }
 
     update(categoria){
