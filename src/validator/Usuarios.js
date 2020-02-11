@@ -1,6 +1,6 @@
 // Define qual pacote você quer, ao invés do default
 const { check, body } = require('express-validator')
-const usuarioDAO = require('../models/Usuarios')
+const usuarioDAO = new (require('../models/Usuarios'))()
 
 class Usuarios {
     static validations() {
@@ -18,10 +18,10 @@ class Usuarios {
             body('email').custom(email => {
                     return usuarioDAO.searchEmail(email)
                     .then(retorno => {
+                        retorno = retorno[0];
                         if(retorno){
-                            return Promise.reject("Email já cadastrado!")
+                            return Promise.reject("Email já cadastrado!");
                         }
-    
                 })
             })
         ]
